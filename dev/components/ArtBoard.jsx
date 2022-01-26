@@ -4,11 +4,15 @@ import Art from './Art.jsx';
 class ArtBoard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { arts: []};
+    this.state = { arts: [] };
   }
 
   componentDidMount() {
-
+    fetch('localhost:3000/art')
+      .then(res => res.json())
+      .then(artWorks => {
+        this.setState({arts: artWorks})
+      })
   }
 
   render() {
@@ -17,7 +21,7 @@ class ArtBoard extends React.Component {
     });
 
     return (
-      <div id='board'>
+      <div id='ArtBoard'>
         {artWorks}
         <h1>h1</h1>
         <h2>h2</h2>
