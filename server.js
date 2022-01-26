@@ -14,18 +14,25 @@ mongoose.connect(MONGO_URI, {
   .then(() => console.log('database connected'))
   .catch(() => console.log('error occured while connecting to database'));
 
-app.get('/', (req, res) => {
-  // res.sendFile(path.resolve('dist', 'index.html'));
-  res.sendFile(path.resolve('dev', 'views', 'temp.html'));
-});
 
-app.post('/', (req, res) => {
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
+app.get('/', (req, res) => {
   // res.sendFile(path.resolve('dist', 'index.html'));
   res.sendFile(path.resolve('dev', 'views', 'temp.html'));
 });
 
 app.get('/api', artController.getArt, (req, res) => {
   res.status(200).json(res.locals);
+});
+
+app.post('/api', artController.postArt, (req, res) => {
+  res.redirect('/');
+});
+
+app.delete('/api/:id', artController.deleteArt, (req, res) => {
+  res.redirect('/adsfasdf');
 });
 
 app.listen(3000, () => {

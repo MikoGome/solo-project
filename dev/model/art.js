@@ -17,7 +17,7 @@ const artSchema = mongoose.Schema({
     type: Date,
     default: new Date()
   },
-  // tags: [String],
+  tags: [String],
   description: String
 });
 

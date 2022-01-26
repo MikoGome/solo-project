@@ -6,8 +6,7 @@ function Header(props) {
 
   return (
     <header>
-      <Logo />
-      <Upload />
+      <Logo/>
     </header>
   )
 }

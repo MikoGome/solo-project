@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './Header.jsx';
 import ArtBoard from './ArtBoard.jsx';
+import Upload from './Upload.jsx';
 
 
 function App(props) {
-
-  return (
-    <>
-    <Header />
-    <ArtBoard />
-    </>
-  )
+  const [display, setDisplay] = useState(true);
+  
+  if(display) {
+    return (
+      <>
+        <Header setDisplay={setDisplay} display={display}/>
+        <button onClick={() => setDisplay(!display)}>Upload Art</button>
+        <ArtBoard/>
+      </>
+    )
+  } else {
+    return (
+      <>
+        <Header setDisplay={setDisplay} display={display}/>
+        <Upload/>
+      </>
+    )
+  }
 }
 
 export default App;
