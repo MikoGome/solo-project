@@ -8,7 +8,7 @@ class ArtBoard extends React.Component {
   }
 
   componentDidMount() {
-    fetch('localhost:3000/art')
+    fetch('/api/', {mode: 'cors'})
       .then(res => res.json())
       .then(artWorks => {
         this.setState({arts: artWorks})
@@ -17,17 +17,11 @@ class ArtBoard extends React.Component {
 
   render() {
     const artWorks = this.state.arts.map((art, index) => {
-      return <Art key={index} art={art}/>;
+      return <Art key={index} artPost={art}/>;
     });
-
     return (
       <div id='ArtBoard'>
         {artWorks}
-        <h1>h1</h1>
-        <h2>h2</h2>
-        <h3>h3</h3>
-        <h4>h4</h4>
-        <p>p</p>
       </div>
     )
   }

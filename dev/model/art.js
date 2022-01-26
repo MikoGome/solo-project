@@ -17,8 +17,8 @@ const artSchema = mongoose.Schema({
     type: Date,
     default: new Date()
   },
-  tags: [String],
+  // tags: [String],
   description: String
 });
 
-modules.exports = mongoose.model('ArtPost', artSchema);
+module.exports = mongoose.model('ArtPost', artSchema);

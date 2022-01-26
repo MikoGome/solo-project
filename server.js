@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const app = express();
+const artController = require('./dev/controller/artController.js');
 
 const MONGO_URI = 'mongodb+srv://Miko:2182Haruhi@mikocluster.bmr4k.mongodb.net/ArtistStory?retryWrites=true&w=majority'
 
@@ -23,8 +24,8 @@ app.post('/', (req, res) => {
   res.sendFile(path.resolve('dev', 'views', 'temp.html'));
 });
 
-app.get('/art', (req, res) => {
-  res.status(200).json(res.locals)
+app.get('/api', artController.getArt, (req, res) => {
+  res.status(200).json(res.locals);
 });
 
 app.listen(3000, () => {

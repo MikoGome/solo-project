@@ -1,15 +1,15 @@
 import React from "react";
 
 function Art(props) {
-  
+  console.log(props);
   return (
-    <div>
-      <img />
-      <h2></h2>
-      <h3></h3>
-      <h4></h4>
-      <p></p>
-    </div>
+    <figure>
+      <img src={props.artPost.art}/>
+      <h1>{props.artPost.title}</h1>
+      <h2>{props.artPost.artist}</h2>
+      <h2>{props.artPost.date/*.toDateString()*/}</h2>
+      <p>{props.artPost.description}</p>
+    </figure>
   )
 }
 
