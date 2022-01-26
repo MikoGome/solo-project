@@ -17,8 +17,15 @@ const artSchema = mongoose.Schema({
     type: Date,
     default: new Date()
   },
-  tags: [String],
-  description: String
+  description: String,
+  likes: {
+    type: Number,
+    default: 0
+  },
+  comments: [{
+    user: String,
+    comment: String
+  }]
 });
 
 module.exports = mongoose.model('ArtPost', artSchema);

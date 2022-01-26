@@ -7,6 +7,7 @@ function Header(props) {
   return (
     <header>
       <Logo/>
+      <button onClick={() => props.setDisplay(!props.display)}>Upload Art</button>
     </header>
   )
 }

@@ -1,0 +1,63 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: blue;
+  display: flex;
+  justify-content: center;
+  
+  h1 {
+    text-align: center;
+    font-size: 4rem;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+  }
+  
+  button {
+    align-self: center;
+  }
+}
+
+body {
+  background-color: salmon;
+}
+
+button {
+  float: right;
+  cursor: pointer;
+}
+
+#artBoard {
+  display: grid;
+  background-color: springgreen;
+  
+  figure {
+  background-color: purple;
+  display: flex;
+  justify-content: center;
+  margin: 10px auto;
+
+    img {
+      max-width: 50vw;
+      max-height: 50vh;
+    }
+
+    figcaption {
+      width: 25vw;
+      background-color:thistle;
+      text-align: center;
+    }
+
+    .likes {
+      background-color: tomato;
+    }
+
+    .commentBox {
+      background-color: yellow;  
+    }
+  }
+}

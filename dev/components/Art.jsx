@@ -1,21 +1,26 @@
 import React from 'react';
-import Tags from './Tags.jsx';
-
 function Art(props) {
-  const tags = props.artPost.tags.map(tag => {
-    return <Tags key={props.artPost._id + tag} tag={tag}/>
-  })
   
   return (
     <figure>
       <img src={props.artPost.art} onError={() => props.selfTerminate(props.artPost._id)}/>
-      <h1>{props.artPost.title}</h1>
-      <h2>{props.artPost.artist}</h2>
-      <h2>{props.artPost.date}</h2>
-      <div className="tags">
-        {tags}
+      <div className="info">
+        <figcaption>
+          <h1>{props.artPost.title}</h1>
+          <h3>Created By: {props.artPost.artist}</h3>
+          <h3>Date: {props.artPost.date}</h3>
+          <p>{props.artPost.description}</p>
+        </figcaption>
+        <div className="likes">
+          Likes: {props.artPost.likes}
+        </div>
+        <ul className="commentBox">
+        </ul>
+        <form action={`/api/${props.artPost._id}`} method="PUT">
+          <input type="text"/>
+          <input type="submit"/>
+        </form>
       </div>
-      <p>{props.artPost.description}</p>
     </figure>
   )
 }

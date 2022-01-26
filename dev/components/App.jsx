@@ -11,7 +11,6 @@ function App(props) {
     return (
       <>
         <Header setDisplay={setDisplay} display={display}/>
-        <button onClick={() => setDisplay(!display)}>Upload Art</button>
         <ArtBoard/>
       </>
     )

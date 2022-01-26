@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const app = express();
-const artController = require('./dev/controller/artController.js');
+const router = require('./dev/routes/routes.js');
 
 const MONGO_URI = 'mongodb+srv://Miko:2182Haruhi@mikocluster.bmr4k.mongodb.net/ArtistStory?retryWrites=true&w=majority'
 
@@ -18,21 +18,11 @@ mongoose.connect(MONGO_URI, {
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
+app.use('/api', router);
+
 app.get('/', (req, res) => {
   // res.sendFile(path.resolve('dist', 'index.html'));
   res.sendFile(path.resolve('dev', 'views', 'temp.html'));
-});
-
-app.get('/api', artController.getArt, (req, res) => {
-  res.status(200).json(res.locals);
-});
-
-app.post('/api', artController.postArt, (req, res) => {
-  res.redirect('/');
-});
-
-app.delete('/api/:id', artController.deleteArt, (req, res) => {
-  res.redirect('/adsfasdf');
 });
 
 app.listen(3000, () => {
