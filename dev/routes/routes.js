@@ -3,15 +3,19 @@ const router = express.Router();
 const artController = require('../controller/artController.js');
 
 router.get('/', artController.getArt, (req, res) => {
-  res.status(200).json(res.locals);
+  return res.status(200).json(res.locals);
 });
 
 router.post('/', artController.postArt, (req, res) => {
-  res.redirect('/');
+  return res.redirect('/');
 });
 
 router.delete('/:id', artController.deleteArt, (req, res) => {
-  res.redirect('/adsfasdf');
+  return res.redirect('/');
+});
+
+router.patch('/:id', artController.patchArt, (req, res) => {
+  return res.status(200).json(res.locals);
 });
 
 module.exports = router;

@@ -57,7 +57,8 @@ button {
     }
 
     .commentBox {
-      background-color: yellow;  
+      background-color: yellow;
+      overflow: auto;
     }
   }
 }

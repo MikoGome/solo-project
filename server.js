@@ -22,7 +22,7 @@ app.use('/api', router);
 
 app.get('/', (req, res) => {
   // res.sendFile(path.resolve('dist', 'index.html'));
-  res.sendFile(path.resolve('dev', 'views', 'temp.html'));
+  return res.sendFile(path.resolve('dev', 'views', 'temp.html'));
 });
 
 app.listen(3000, () => {
