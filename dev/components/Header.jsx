@@ -6,8 +6,11 @@ function Header(props) {
 
   return (
     <header>
+      <div id="user">
+        <h2>You are: </h2> 
+      </div>
       <Logo/>
-      <button onClick={() => props.setDisplay(!props.display)}>Upload Art</button>
+      <button onClick={() => props.setDisplay(!props.display)}>{props.display ? 'Upload Art' : 'Look at Art'}</button>
     </header>
   )
 }

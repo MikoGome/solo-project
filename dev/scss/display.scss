@@ -1,64 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+$borderColor: black;
+$backgroundcolor: rgba(0, 0, 0, 0.712);
+$textColor: white;
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.2rem;
 }
 
 header {
-  background-color: blue;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+  user-select: none;
+
+  #user {
+    background-color: green;
+  }
   
   h1 {
     text-align: center;
-    font-size: 4rem;
-    background-color: green;
-    color: white;
+    font-size: 5rem;
+    color: Black;
     cursor: pointer;
   }
   
   button {
-    align-self: center;
+    // position: absolute;
+    background-color: transparent;
+    right: 10%;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    font-weight: 700;
+    border: 1px solid black;
   }
 }
 
 body {
-  background-color: salmon;
 }
 
 button {
   float: right;
   cursor: pointer;
+  transition: all 0.25s;
+  padding: 0 1rem;
+  border: 1px solid $borderColor;
+
+  &:hover {
+    background-color: black;
+    color: white;
+  }
 }
 
 #artBoard {
   display: grid;
-  background-color: springgreen;
+  margin: 0 auto;
   
   figure {
-  background-color: purple;
-  display: flex;
-  justify-content: center;
-  margin: 10px auto;
+  width: 50vw;
+  min-width: 500px;
+  margin: 30px auto;
+  border: 1px solid $borderColor;
+  background-color: $backgroundcolor;
+  color: $textColor;
 
     img {
-      max-width: 50vw;
-      max-height: 50vh;
+      width: 100%;
+      border-bottom: 1px solid $borderColor;
     }
+    
+    .rightSide {
+      
+      .info {
 
-    figcaption {
-      width: 25vw;
-      background-color:thistle;
-      text-align: center;
-    }
+        figcaption {
+          text-align: center;
+          padding: 25px;
 
-    .likes {
-      background-color: tomato;
-    }
+          * {
+            margin: 10px 0;
+          }
+  
+          h1 {
+            font-size: 3rem;
+            word-wrap: break-word;
+          }
+  
+          fieldSet {
+            margin: 0 auto;
+            width: 80%;
 
-    .commentBox {
-      background-color: yellow;
-      overflow: auto;
+            p {
+              word-wrap: break-word;
+            }
+  
+            legend {
+              font-size: 1rem;
+            }
+          }
+        }
+    
+        .likes {
+          height: 5%;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+  
+        }
+    
+        .commentBox {
+          display: block;
+          word-wrap: break-word;
+          overflow: auto;
+          padding: 10px;
+          height: 15rem;
+          border-top: 1px solid $borderColor;
+
+          li {
+            margin: 10px 0;
+            text-decoration: none;
+          }
+        }
+    
+        .chat {
+          display: flex;
+          width: 100%;
+          border: none;
+  
+          input {
+            background-color: white;
+            width: 95%;
+            height: 100%;
+            padding: 2px 10px;
+            outline: none;
+          }
+        }
+      }
     }
   }
 }

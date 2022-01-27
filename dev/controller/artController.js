@@ -3,13 +3,15 @@ const ArtPost = require('../model/art.js');
 const artController = {}
 
 artController.getArt = (req, res, next) => {
-  ArtPost.find({}).sort({$natural: -1}).exec()
+  // ArtPost.deleteMany({}).exec()
+  // .then(next());
+  ArtPost.find({}).sort({likes: -1, date: -1}).exec()
     .then(data => {
       res.locals = data;
       next();
     })
     .catch(err => {
-      console.log('error occured during artController.getArt');
+      console.log('error occured during artController.getArt', err);
     });
 }
 
@@ -30,10 +32,10 @@ artController.deleteArt = (req, res, next) => {
     .catch(() => console.log('error occured during'));
 }
 
-artController.patchArt = (req, res, next) => {
-  ArtPost.findByIdAndUpdate(req.params.id, {comments: req.body}).exec()
+artController.patchArt = (req, res, next) => {  
+  ArtPost.findByIdAndUpdate(req.params.id, req.body, {new: true}).exec()
     .then(result => {
-      res.locals = result.comments;
+      res.locals = result;
       next();
     })
     .catch((err) => console.log('error occured during artController.patchArt', err));

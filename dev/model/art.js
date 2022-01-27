@@ -15,7 +15,7 @@ const artSchema = mongoose.Schema({
   },
   date: {
     type: Date,
-    default: new Date()
+    default: Date.now,
   },
   description: String,
   likes: {
@@ -23,8 +23,14 @@ const artSchema = mongoose.Schema({
     default: 0
   },
   comments: [{
-    user: String,
-    comment: String
+    user: {
+      type: String,
+      required: true
+    },
+    comment: {
+      type: String,
+      required: true
+    }
   }]
 });
 
