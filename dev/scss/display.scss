@@ -17,10 +17,6 @@ header {
   justify-content: space-evenly;
   align-items: center;
   user-select: none;
-
-  #user {
-    background-color: green;
-  }
   
   h1 {
     text-align: center;
@@ -37,6 +33,10 @@ header {
     padding: 0.5rem;
     font-weight: 700;
     border: 1px solid black;
+
+    span {
+      font-size: 1.5rem;
+    }
   }
 }
 
@@ -61,7 +61,7 @@ button {
   margin: 0 auto;
   
   figure {
-  width: 50vw;
+  max-width: 40vw;
   min-width: 500px;
   margin: 30px auto;
   border: 1px solid $borderColor;
@@ -86,7 +86,12 @@ button {
           }
   
           h1 {
-            font-size: 3rem;
+            font-size: 1.5em;
+            word-wrap: break-word;
+          }
+
+          h3 {
+            font-size: 1em;
             word-wrap: break-word;
           }
   
@@ -95,34 +100,40 @@ button {
             width: 80%;
 
             p {
+              font-size: 1em;
               word-wrap: break-word;
             }
   
             legend {
-              font-size: 1rem;
+              font-size: 0.75rem;
             }
           }
         }
     
         .likes {
-          height: 5%;
+          margin: 10px;
           display: flex;
           align-items: center;
           justify-content: space-around;
-  
+
+          button {
+            background-color: rgba(255, 255, 255, 0.753);
+            color: black;
+          }
         }
     
         .commentBox {
           display: block;
           word-wrap: break-word;
           overflow: auto;
-          padding: 10px;
-          height: 15rem;
+          padding: 5px 25px;
+          max-height: 15rem;
           border-top: 1px solid $borderColor;
 
           li {
             margin: 10px 0;
-            text-decoration: none;
+            list-style-type: none;
+            font-size: 0.8rem;
           }
         }
     
