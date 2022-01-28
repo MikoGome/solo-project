@@ -7,7 +7,8 @@
     "start": "nodemon server.js",
     "build": "webpack",
     "dev": "webpack serve --open",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "webpack -p"
   },
   "repository": {
     "type": "git",
