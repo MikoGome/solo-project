@@ -29,6 +29,6 @@ app.get('/bundle.js', (req, res) => {
   return res.sendFile(path.resolve('./dist/bundle.js'));
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log('app is listening to port 3000');
 })
