@@ -33,7 +33,7 @@ class ArtBoard extends React.Component {
 
   render() {
     const artWorks = this.state.arts.map((art, index) => {
-      return <Art key={index} artPost={art} selfTerminate={this.selfTerminate}/>;
+      return <Art key={index} user={this.props.user} artPost={art} selfTerminate={this.selfTerminate}/>;
     });
     return (
       <div id='ArtBoard'>

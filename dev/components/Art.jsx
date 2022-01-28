@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 
 function Art(props) {
-
+  console.log(props);
   const [comment, setComment] = useState('');
   const [commentList, updateCommentList] = useState(props.artPost.comments);
   const [likes, setLikes] = useState(props.artPost.likes);
@@ -22,7 +22,7 @@ function Art(props) {
       method: 'PATCH',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({comments: coms.concat({
-        user: 'Miko',
+        user: props.user,
         comment: comment
       })})
     })
@@ -41,6 +41,7 @@ function Art(props) {
   }
 
   function liked() {
+    if(localStorage[props.artPost._id]) return
     fetch(`/api/${props.artPost._id}`, {
       method: 'PATCH',
       headers: {'Content-Type': 'application/json'},
@@ -49,6 +50,7 @@ function Art(props) {
       .then(res => res.json())
       .then(data => {
         setLikes(data.likes);
+        localStorage[props.artPost._id] = true;
       });
   }
 
@@ -69,7 +71,7 @@ function Art(props) {
       <div className="info">
         <figcaption>
           <h1>{props.artPost.title}</h1>
-          <h3>Created By: {props.artPost.artist}</h3>
+          <h3>Uploaded By: {props.artPost.artist}</h3>
           <h3>Date: {props.artPost.date}</h3>
           <fieldset>
             <legend>Description</legend>
@@ -84,8 +86,8 @@ function Art(props) {
           {displayComments(commentList)}
         </ul>
         <div className="chat">
-          <input id={props.artPost._id} type="text" autoComplete="off" onChange={sendComment} onKeyDown={e => pressEnter(e)} name="comment"/>
-          <button onClick={() => {if(comment.length > 0) startPatch(commentList)}}>Send</button>
+          <input id={props.artPost._id} type="text" autoComplete="off" onChange={sendComment} onKeyDown={e => {if(props.user) pressEnter(e)}} name="comment"/>
+          <button onClick={() => {if(comment.length > 0 && props.user) startPatch(commentList)}}>Send</button>
         </div>
       </div>
       </section>

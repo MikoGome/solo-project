@@ -10,8 +10,8 @@ function Upload(props) {
       <label> Art URL <br/>
         <input type="text" name="art" autoComplete="off" placeholder="URL" required/>
       </label>
-      <label> Artist Name <br/>
-        <input type="text" name="artist" autoComplete="off" placeholder="artist" required/>
+      <label> Uploader Name <br/>
+        <input type="text" name="artist" autoComplete="off" placeholder="uploader" required value={props.user}/>
       </label>
       <label> Description <br/>
         <textarea name="description" rows="10" cols="50" style={{resize: "none"}}></textarea>

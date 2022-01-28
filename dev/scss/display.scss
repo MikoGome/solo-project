@@ -126,14 +126,14 @@ button {
           display: block;
           word-wrap: break-word;
           overflow: auto;
-          padding: 5px 25px;
+          padding: 0px 25px;
           max-height: 15rem;
           border-top: 1px solid $borderColor;
 
           li {
             margin: 10px 0;
             list-style-type: none;
-            font-size: 0.8rem;
+            font-size: 1rem;
           }
         }
     

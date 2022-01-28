@@ -22,7 +22,11 @@ app.use('/api', router);
 
 app.get('/', (req, res) => {
   // res.sendFile(path.resolve('dist', 'index.html'));
-  return res.sendFile(path.resolve('dev', 'views', 'temp.html'));
+  return res.sendFile(path.resolve('dist', 'index.html'));
+});
+
+app.get('/bundle.js', (req, res) => {
+  return res.sendFile(path.resolve('./dist/bundle.js'));
 });
 
 app.listen(3000, () => {
