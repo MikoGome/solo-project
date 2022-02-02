@@ -5,7 +5,7 @@ const artController = {}
 artController.getArt = (req, res, next) => {
   // ArtPost.deleteMany({}).exec()
   // .then(next());
-  ArtPost.find({}).sort({date: -1}).exec()
+  ArtPost.find({}).sort({$natural: -1}).exec()
     .then(data => {
       res.locals = data;
       next();
