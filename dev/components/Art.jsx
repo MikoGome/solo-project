@@ -72,7 +72,7 @@ function Art(props) {
         <figcaption>
           <h1>{props.artPost.title}</h1>
           <h3>Uploaded By: {props.artPost.artist}</h3>
-          <h3>Date: {props.artPost.date}</h3>
+          <h3>Date: {new Date(props.artPost.date).toLocaleString()}</h3>
           <fieldset>
             <legend>Description</legend>
             <p>{props.artPost.description.length > 0 ? props.artPost.description : 'No description provided'}</p>
